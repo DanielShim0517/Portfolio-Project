@@ -200,18 +200,31 @@ My project revolves around game design, so I want to recreate Tic-Tac-Toe using
 components. The goal is to learn more about turn-based mechanics through Java. As
 you know, Tic-Tac-Toe is a turn-based game that fits my goals.
   - **Kernel Methods**:
+
 Map<Pair<Integer, Integer>, String> to store board positions.
+
 Queue<String> for player turns.
+
 Set<Pair<Integer, Integer>>) to check occupied positions.
+
 void makeMove(int row, int col): Places the current player's mark at (row, col), if valid.
+
 boolean isGameOver(): Returns true if there is a winner or the board is full.
+
 String getWinner(): Returns "X", "O", or "DRAW" if the game is over.
+
 void clear(): Resets the board.
+
   - **Secondary Methods**:
+
 boolean isValidMove(int row, int col): Checks if the move is legal.
+
 void switchTurn(): Alternates the player’s turn.
+
 Set<Pair<Integer, Integer>> getEmptyCells(): Returns a set of empty board positions.
+
 Map<Pair<Integer, Integer>, String> getBoardState(): Returns the current board configuration.
+
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
@@ -230,15 +243,24 @@ Yes, for example, switchTurn() will alternate the turns between each player.
   - **Description**:
 This is basically like a simulation where I try and replicate what gach games do behind the scenes with their RNG mechanics and luck.
   - **Kernel Methods**:
+
 void add(String item, int rarity): Adds an item to the gacha pool with a given rarity (higher value means rarer).
+
 String pull(): Randomly selects an item from the gacha pool based on rarity.
+
 void clear(): Resets the gacha pool.
+
 int size(): Returns the number of unique items in the pool.
   - **Secondary Methods**:
+
 void addMultiple(Map<String, Integer> items): Adds multiple items at once.
+
 Map<String, Integer> getPool(): Returns the current pool of items and their rarity.
+
 boolean contains(String item): Checks if a specific item is in the pool.
+
 List<String> pullMultiple(int n): Performs multiple pulls at once.
+
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
@@ -258,19 +280,32 @@ Yes, as an example, pullMultiple(int n) can be implemented by calling pull() mul
 This will essentially be like a bank account where it involves withdrawals and deposits
   - **Kernel Methods**:
 NaturalNumber to store the account balance.
+
 Map<String, NaturalNumber> to manage multiple accounts.
+
 Queue<String> for transaction history.
+
 void deposit(NaturalNumber amount): Adds the given amount to the account balance.
+
 boolean withdraw(NaturalNumber amount): Deducts the amount if the balance is sufficient.
+
 NaturalNumber getBalance(): Returns the current balance.
+
 void clear(): Resets the account balance to zero.
+
   - **Secondary Methods**:
+    
 boolean isValidTransaction(NaturalNumber amount): Checks if the transaction can be processed.
+
 Queue<String> getTransactionHistory(): Returns the last few transactions.
+
 Map<String, NaturalNumber> getAllAccounts(): Returns all stored accounts and balances.
+
 void transfer(String fromAccount, String toAccount, NaturalNumber amount): Moves money between accounts if sufficient balance exists.
+
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
+    
     - Would this component be mutable? Answer and explain:
 Yes, because the balances and transactions are always changing.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
