@@ -1,12 +1,10 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Daniel Shim
+- **Dot Number**: shim.201
+- **Due Date**: 2/7/25 @12:40pm
 
 ## Assignment Overview
-
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -106,11 +104,7 @@ Below is further rationale/explanation for the rubric items above:
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+I like watching anime and going to the gym. In terms of playing video games, for an unhealthy unknown reason, I really like to play gacha games.
 
 ## Assignment
 
@@ -200,68 +194,94 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: Tic-Tac-Toe
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+My project revolves around game design, so I want to recreate Tic-Tac-Toe using
+components. The goal is to learn more about turn-based mechanics through Java. As
+you know, Tic-Tac-Toe is a turn-based game that fits my goals.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+Map<Pair<Integer, Integer>, String> to store board positions.
+Queue<String> for player turns.
+Set<Pair<Integer, Integer>>) to check occupied positions.
+void makeMove(int row, int col): Places the current player's mark at (row, col), if valid.
+boolean isGameOver(): Returns true if there is a winner or the board is full.
+String getWinner(): Returns "X", "O", or "DRAW" if the game is over.
+void clear(): Resets the board.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+boolean isValidMove(int row, int col): Checks if the move is legal.
+void switchTurn(): Alternates the player’s turn.
+Set<Pair<Integer, Integer>> getEmptyCells(): Returns a set of empty board positions.
+Map<Pair<Integer, Integer>, String> getBoardState(): Returns the current board configuration.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+Yes, since it is turned based, the players turns and the board changes each turn
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+We can use Map.Pair<Integer, Integer> to store the positions of the X's and O's.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+Yes, to define PLAYER_X, PLAYER_O, and possible win conditions.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+Yes, for example, switchTurn() will alternate the turns between each player.
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: Gacha Game Simulation
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+This is basically like a simulation where I try and replicate what gach games do behind the scenes with their RNG mechanics and luck.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+void add(String item, int rarity): Adds an item to the gacha pool with a given rarity (higher value means rarer).
+String pull(): Randomly selects an item from the gacha pool based on rarity.
+void clear(): Resets the gacha pool.
+int size(): Returns the number of unique items in the pool.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+void addMultiple(Map<String, Integer> items): Adds multiple items at once.
+Map<String, Integer> getPool(): Returns the current pool of items and their rarity.
+boolean contains(String item): Checks if a specific item is in the pool.
+List<String> pullMultiple(int n): Performs multiple pulls at once.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+Yes, because the gacha pool is always changing
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+It can use Map.Pair<String, Integer> to store the gacha items and rarities
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+Rarity levels have to be constants
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+Yes, as an example, pullMultiple(int n) can be implemented by calling pull() multiple times.
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: Bank Account
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+This will essentially be like a bank account where it involves withdrawals and deposits
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+NaturalNumber to store the account balance.
+Map<String, NaturalNumber> to manage multiple accounts.
+Queue<String> for transaction history.
+void deposit(NaturalNumber amount): Adds the given amount to the account balance.
+boolean withdraw(NaturalNumber amount): Deducts the amount if the balance is sufficient.
+NaturalNumber getBalance(): Returns the current balance.
+void clear(): Resets the account balance to zero.
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+boolean isValidTransaction(NaturalNumber amount): Checks if the transaction can be processed.
+Queue<String> getTransactionHistory(): Returns the last few transactions.
+Map<String, NaturalNumber> getAllAccounts(): Returns all stored accounts and balances.
+void transfer(String fromAccount, String toAccount, NaturalNumber amount): Moves money between accounts if sufficient balance exists.
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+Yes, because the balances and transactions are always changing.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+Yes, it could use Map.Pair<String, NaturalNumber> for account storage
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+Yes, for errors like transaction limits
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+transfer() can be implemented using withdraw() and deposit().
 
 ## Post-Assignment
 
